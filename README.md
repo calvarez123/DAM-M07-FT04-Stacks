@@ -4,6 +4,8 @@ This project is a starting point for a Flutter application with a Cupertino look
 
 ## Getting Started, clone and create a project
 
+CRISTIAN ALVAREZ MARTINEZ
+
 For example to create a new GitHub project named FT04-Stacks
 
 With a Flutter project named 'stacks'

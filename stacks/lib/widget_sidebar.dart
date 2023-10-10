@@ -52,14 +52,19 @@ class WidgetSidebarsState extends State<WidgetSidebars> {
           // Left Sidebar
           Container(
             color: Color.fromRGBO(234, 228, 226, 1),
-            child: widget.left,
             width: width,
+            child: widget.left,
           ),
         if (isSidebarRightVisible)
-          Container(
-            color: Color.fromRGBO(234, 228, 226, 1),
-            child: widget.right,
-            width: width,
+          Positioned(
+            top: 0,
+            bottom: 0,
+            right: 0, // Esto coloca el widget a la derecha
+            child: Container(
+              color: Color.fromRGBO(234, 228, 226, 1),
+              width: width,
+              child: widget.right,
+            ),
           ),
         // Contingut Principal (central)
         AnimatedPositioned(

@@ -1,5 +1,6 @@
 import 'package:cupertino_base/widget_popover.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'app_data.dart';
 
@@ -12,6 +13,14 @@ class LayoutPartCentral extends StatefulWidget {
 
 class LayoutPartCentralState extends State<LayoutPartCentral> {
   final GlobalKey _settingsButtonKey = GlobalKey();
+  Color textColor = Colors.black;
+
+  void changeTextColor(Color newColor) {
+    setState(() {
+      textColor = newColor;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     AppData appData = Provider.of<AppData>(context);
@@ -48,17 +57,36 @@ class LayoutPartCentralState extends State<LayoutPartCentral> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            print("Opció 1 premuda");
+                            //negre
+
+                            changeTextColor(Colors.black);
                             WidgetPopover.hidePopover();
                           },
-                          child: Text('Opció 1'),
+                          child: Text('Negre'),
                         ),
                         GestureDetector(
+                          //vermell
                           onTap: () {
-                            print("Opció 2 premuda");
+                            changeTextColor(Colors.red);
                             WidgetPopover.hidePopover();
                           },
-                          child: Text('Opció 2'),
+                          child: Text('Vermell'),
+                        ),
+                        GestureDetector(
+                          //verd
+                          onTap: () {
+                            changeTextColor(Colors.green);
+                            WidgetPopover.hidePopover();
+                          },
+                          child: Text('Verd'),
+                        ),
+                        GestureDetector(
+                          //blau
+                          onTap: () {
+                            changeTextColor(Colors.blue);
+                            WidgetPopover.hidePopover();
+                          },
+                          child: Text('Blau'),
                         ),
                       ],
                     ),
@@ -84,10 +112,18 @@ class LayoutPartCentralState extends State<LayoutPartCentral> {
               )),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 50.0),
+          padding: EdgeInsets.only(top: 50.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Text("Central")],
+            children: [
+              Text(
+                'CENTRAL',
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: 30,
+                ),
+              ),
+            ],
           ),
         ));
   }
